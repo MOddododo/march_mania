@@ -10,20 +10,9 @@ __pycache__/
 *$py.class
 *.so
 
-# 3. 数据文件(防止误提交大文件)
-*.csv
-*.parquet
-data/
-cache_*.csv
-
-# 例外: 允许提交特定的数据集文件夹
-!march_mania_datasets/
-!march_mania_datasets/**
-
-# 4. 环境变量文件(包含密码/Token)
+# 3. 环境变量文件(包含密码/Token)
 .env
 .env.local
 .env.*.local
 
-# 7. Jupyter Notebook 
-*.ipynb_checkpoints/
+
