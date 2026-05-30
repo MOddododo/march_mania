@@ -17,5 +17,6 @@ notebook==7.5.0
 jupyterlab-lsp==5.2.0
 python-lsp-server==1.12.0
 
-kaggle == 1.7.4.5
-kagglehub == 1.0.1
+
+kagglehub == 0.4.3
+kagglesdk == 0.1.25
