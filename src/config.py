@@ -1,5 +1,4 @@
 import os
-
 # 本地数据下载需要配置
 SEASON_COL = "Season"
 FRAC = 0.1  # 每个赛季抽取 10%
@@ -37,3 +36,25 @@ SECRET_TOKEN=get_github_token()
 OWNER="MOddododo"
 REPO="march_mania_datasets"
 BRANCH="main"
+
+# 检测当前是否在 Jupyter Notebook 环境中运行
+def is_running_in_notebook():
+    try:
+        shell = get_ipython().__class__.__name__
+        if shell == 'ZMQInteractiveShell':
+            return True
+        else:
+            return False
+    except NameError:
+        return False
+    
+if __name__ == "__main__":
+    IS_NOTEBOOK = is_running_in_notebook()
+    print("是否在 Jupyter Notebook 中运行：", IS_NOTEBOOK)
+    print(f"当前环境：{'Jupyter Notebook' if IS_NOTEBOOK else '普通 Python 脚本'}")
+
+
+# ELO rating system configurations
+base_elo = 1000
+elo_width = 400
+k_factor = 100

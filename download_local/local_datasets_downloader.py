@@ -62,7 +62,7 @@ def _check_url_with_retry(url: str, max_retries: int = 3, timeout: int = 10) -> 
 
 def download_local_datasets(dataset_name, froms='gitee', frac=FRAC, timeout=15):
     # 假设 is_kaggle 逻辑在外部，如果是本地环境直接走 else
-    local_dir = Path('local_data')
+    local_dir = Path('./data/local_small')
     dataset_path = local_dir / dataset_name
     
     if not dataset_path.exists():
