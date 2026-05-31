@@ -1,4 +1,4 @@
-from get_basic_info import *
+from config import *
 from pathlib import Path
 import pandas as pd
 def get_main_datasets():
