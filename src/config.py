@@ -58,3 +58,59 @@ if __name__ == "__main__":
 base_elo = 1000
 elo_width = 400
 k_factor = 100
+
+# XGBoost configurations
+# using features
+XGB_features = [
+    'Gender',
+    'T1_seed',
+    'T2_seed',
+    'Seed_diff',
+    'T1_avg_Score',
+    'T1_avg_FGA',
+    'T1_avg_Blk',
+    'T1_avg_PF',
+    'T1_avg_opponent_FGA',
+    'T1_avg_opponent_Blk',
+    'T1_avg_opponent_PF',
+    'T1_avg_PointDiff',
+    'T2_avg_Score',
+    'T2_avg_FGA',
+    'T2_avg_Blk',
+    'T2_avg_PF',
+    'T1_avg_Poss',
+    'T1_avg_opponent_Poss',
+    'T2_avg_opponent_FGA',
+    'T2_avg_opponent_Blk',
+    'T2_avg_opponent_PF',
+    'T2_avg_PointDiff',
+    'T2_avg_Poss',
+    'T2_avg_opponent_Poss',
+    'T1_elo',
+    'T2_elo',
+    'elo_diff',
+    'T1_quality',
+    'T2_quality',
+    'T1_elo_tour',
+    'T2_elo_tour',
+    'elo_diff_tour'
+
+]
+
+param = {}
+param["objective"] = "reg:squarederror"
+param["booster"] = "gbtree"
+param["eta"] = 0.01
+param["subsample"] = 0.6
+param["colsample_bynode"] = 0.8
+param["num_parallel_tree"] = 2
+param["min_child_weight"] = 4
+param["max_depth"] = 4
+param["tree_method"] = "hist"
+param['grow_policy'] = 'lossguide'
+param["max_bin"] = 32
+
+num_rounds = 700
+spline_t = 25
+aggression=1.0
+

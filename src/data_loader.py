@@ -10,7 +10,6 @@ def _import_config():
     is_notebook = False
     ipy = None
     
-    # 1. 安全检测环境（不依赖额外的 import IPython）
     try:
         ipy = get_ipython()
         if ipy.__class__.__name__ == 'ZMQInteractiveShell':
@@ -18,28 +17,30 @@ def _import_config():
     except NameError:
         pass
 
-    # 2. 根据环境进行不同的导入逻辑
     if is_notebook:
         # === Jupyter Notebook 环境 ===
-        # 将项目根目录加入环境变量 (假设 notebook 在子文件夹中)
         project_root = str(Path.cwd().parent)
         if project_root not in sys.path:
             sys.path.insert(0, project_root)
 
-        # 【关键修复】使用代码的方式调用魔法命令，避免在 .py 中报 SyntaxError
         ipy.run_line_magic('load_ext', 'autoreload')
         ipy.run_line_magic('autoreload', '2')
 
         # 导入并返回模块
         from src import config
-        print('✅ [动态加载] Jupyter Notebook 环境：已加载 src.config')
+        print('Jupyter Notebook 环境')
         return config
 
     else:
         # === 普通 Python 脚本环境 ===
-        import config
-        print('✅ [动态加载] 普通脚本环境：已加载当前目录的 config')
-        return config
+        try:
+            from src import config
+            print('普通脚本环境')
+            return config
+        except ImportError:
+            import config
+            print('普通脚本环境')
+            return config
 
 config = _import_config()
 import pandas as pd
@@ -78,6 +79,16 @@ def get_main_datasets(full_data=False):
         seeds = pd.concat([M_seeds, W_seeds])
         return regular_results, tourney_results, seeds
     
+def get_submission_datasets():
+    if config.is_kaggle():
+        input_dir = Path("/kaggle/input/competitions/march-machine-learning-mania-2026")
+        submission = pd.read_csv(input_dir / 'SampleSubmissionStage1.csv')
+        return submission
+    else:
+        project_note = Path(__file__).resolve().parents[1]
+        input_dir = project_note / 'data' / 'local_small'
+        submission = pd.read_csv(input_dir / 'submission.csv')
+        return submission
 
 
 if __name__ == '__main__':
