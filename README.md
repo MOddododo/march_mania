@@ -103,14 +103,8 @@ march_mania/
 └── README.md               # 本文档
 ```
 
-## 6. 贡献指南
 
-1. **Fork 本项目** 并创建您的特性分支 (`git checkout -b feature/AmazingFeature`)。
-2. **提交更改**：请确保代码符合 PEP 8 规范，并附带必要的注释。
-3. **推送分支**：`git push origin feature/AmazingFeature`。
-4. **发起 Pull Request**：请详细描述您的更改内容及测试情况。
-
-## 7. 常见问题 (FAQ)
+## 6. 常见问题 (FAQ)
 
 **Q: 为什么在计算 Elo 时 K-Factor 是动态的？**
 A: 为了响应球队实力的时序演变，项目对较远赛季的 K-Factor 进行了指数衰减处理，使模型更关注近期表现。
