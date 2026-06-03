@@ -93,7 +93,13 @@ XGB_features = [
     'T2_quality',
     'T1_elo_tour',
     'T2_elo_tour',
-    'elo_diff_tour'
+    'elo_diff_tour',
+    'T1_tour_avg_Score',
+    'T1_tour_avg_PointDiff',
+    'T2_tour_avg_Score',
+    'T2_tour_avg_PointDiff',
+    'T1_tour_avg_Poss',
+    'T2_tour_avg_Poss'
 
 ]
 
