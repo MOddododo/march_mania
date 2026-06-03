@@ -57,8 +57,15 @@
    *(注：若无 requirements.txt，可手动执行 `pip install pandas numpy xgboost scikit-learn scipy statsmodels tqdm python-dotenv`)*
 
 ### 3.2 数据准备
-1. 在项目根目录下创建 `data/raw` 目录。
-2. 将竞赛原始 CSV 文件（如 `MRegularSeasonDetailedResults.csv`, `MNCAATourneySeeds.csv` 等）放入该目录。
+1. **自动下载（推荐）**：
+   项目内置了数据下载工具，可从 [GitHub 数据集仓库](https://github.com/MOddododo/march_mania_datasets) 自动获取并采样数据：
+   ```bash
+   python download_local/local_datasets_downloader.py
+   ```
+2. **手动准备**：
+   - 访问 [March Mania Datasets GitHub](https://github.com/MOddododo/march_mania_datasets) 下载原始 CSV 文件。
+   - 在项目根目录下创建 `data/raw` 目录。
+   - 将下载的 CSV 文件（如 `MRegularSeasonDetailedResults.csv`, `MNCAATourneySeeds.csv` 等）放入该目录。
 
 ### 3.3 运行预测
 直接运行入口主函数：
