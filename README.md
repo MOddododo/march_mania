@@ -1,4 +1,4 @@
-# March Mania: NCAA 赛果预测机器学习项目
+# March Mania: NCAA 比赛预测机器学习项目
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
